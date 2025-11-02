@@ -2,6 +2,11 @@
   padding: 2rem;
   max-width: 72rem;
   margin: 0 auto;
+  @media (max-width: 330px) {
+    padding: 0.5rem;
+    height: 90vh;
+    overflow: auto;
+  }
 }
 
 .gallery-title {
@@ -23,7 +28,6 @@
 .gallery-item {
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.25s ease;
 }
@@ -35,6 +39,7 @@
 .gallery-caption {
   padding: 0.5rem;
   font-size: 0.875rem;
+  text-align: center;
   color: #4b5563;
 }
 

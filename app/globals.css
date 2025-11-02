@@ -37,7 +37,8 @@ body {
   z-index: 4;
 
   @media (max-width: 640px) {
-    padding: 0.5rem auto;  
+    height: 8vh;
+    padding: 0;
   }
   
 }
@@ -49,7 +50,8 @@ h1 {
   font-weight: 300;
   font-family: var( --font-playpen), sans-serif;
   @media (max-width: 640px) {
-    font-size: 3rem;
+    text-align: center;
+    font-size: 2rem;
   }
 }
 
@@ -63,7 +65,7 @@ h1 {
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 8rem;
+  padding-top: 8rem;
 }
 
 
@@ -72,7 +74,7 @@ h1 {
   position: fixed;
   width: 60px;        /* adjust as needed */
   height: 60px;
-  z-index: -1;       /* stay above background, below overlays */
+  z-index: 5;       /* stay above background, below overlays */
   opacity: 0.9;       /* slightly transparent */
   pointer-events: none; /* so they don’t block clicks */
 }
@@ -80,13 +82,11 @@ h1 {
 .corner-top-left {
   top: 10px;
   left: 10px;
-  z-index: 5;       /* stay above background, below overlays */
 }
 
 .corner-top-right {
   top: 10px;
   right: 10px;
-  z-index: 5;       /* stay above background, below overlays */
 
 }
 
@@ -106,4 +106,5 @@ h1 {
     height: 40px;
     opacity: 0.7;
   }
+
 }
