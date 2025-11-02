@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { client } from '@/sanity.client'
 import { footerQuery } from '@/sanity.queries'
 import Footer from './components/Footer';
+import StudioWrapper from './components/StudioWrapper' // 👈 client-side wrapper
 
 const kantumruyPro = localFont({
   src: [
@@ -71,15 +72,19 @@ export default async function RootLayout({
       <body
         className={`${kantumruyPro.variable} ${mynerve.variable} antialiased`}
       >
-        <header className="header">
-          <h1>PICTUREWARE</h1>
-        </header>
+        <StudioWrapper >
+          <header className="header">
+            <h1>PICTUREWARE</h1>
+          </header>
+          {/* Corner decorations */}
+          <img src="/corner-top-left.png" alt="" className="corner-decoration corner-top-left" />
+          <img src="/corner-top-right.png" alt="" className="corner-decoration corner-top-right" />
+          <img src="/corner-bottom-left.png" alt="" className="corner-decoration corner-bottom-left" />
+          <img src="/corner-bottom-right.png" alt="" className="corner-decoration corner-bottom-right" />
+        </StudioWrapper>
+        
         {children}
-        {/* Corner decorations */}
-        <img src="/corner-top-left.png" alt="" className="corner-decoration corner-top-left" />
-        <img src="/corner-top-right.png" alt="" className="corner-decoration corner-top-right" />
-        <img src="/corner-bottom-left.png" alt="" className="corner-decoration corner-bottom-left" />
-        <img src="/corner-bottom-right.png" alt="" className="corner-decoration corner-bottom-right" />
+        
         <Footer footer={footer} />
       </body>
     </html>
