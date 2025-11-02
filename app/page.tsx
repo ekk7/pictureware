@@ -10,8 +10,7 @@ export default async function Home() {
   const posts = await getPosts()
 
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Pictureware</h1>
+    <main className="wrapper">
       <GalleryWrapper query={'*[_type == "gallery"][0]'} />
 
       {/* <ul>

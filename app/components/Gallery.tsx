@@ -33,8 +33,8 @@ export default function Gallery({ gallery }) {
 
   return (
     <main className="gallery-container">
-      <h2 className="gallery-title">{gallery.title}</h2>
-      {gallery.description && <p className="gallery-description">{gallery.description}</p>}
+      {/* <h2 className="gallery-title">{gallery.title}</h2> */}
+      {/* {gallery.description && <p className="gallery-description">{gallery.description}</p>} */}
 
       {/* --- grid --- */}
       <div className="gallery-grid">

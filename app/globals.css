@@ -27,10 +27,83 @@ body {
   font-family: var( --font-kantumruyPro), sans-serif;
 }
 
+.header {
+  position: fixed;
+  background: transparent;
+  padding: 0 7rem;
+  height: 12vh;
+  width: 100%;
+  background: white;
+  z-index: 4;
+
+  @media (max-width: 640px) {
+    padding: 0.5rem auto;  
+  }
+  
+}
+
 h1 {
+  padding: 0.6rem 0 1.5rem 0;
   color: #F0B394; 
-  font-size: 6rem;
-  font-weight: 200;
-  text-align: right;
+  font-size: 3.7rem;
+  font-weight: 300;
   font-family: var( --font-playpen), sans-serif;
+  @media (max-width: 640px) {
+    font-size: 3rem;
+  }
+}
+
+.content {
+  top: 30vh;
+  margin-bottom: 5rem;
+  display: block;
+  min-height: 80vh;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem;
+}
+
+
+/* Four corner decorative images */
+.corner-decoration {
+  position: fixed;
+  width: 60px;        /* adjust as needed */
+  height: 60px;
+  z-index: -1;       /* stay above background, below overlays */
+  opacity: 0.9;       /* slightly transparent */
+  pointer-events: none; /* so they don’t block clicks */
+}
+
+.corner-top-left {
+  top: 10px;
+  left: 10px;
+  z-index: 5;       /* stay above background, below overlays */
+}
+
+.corner-top-right {
+  top: 10px;
+  right: 10px;
+  z-index: 5;       /* stay above background, below overlays */
+
+}
+
+.corner-bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.corner-bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+@media (max-width: 640px) {
+  .corner-decoration {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+  }
 }

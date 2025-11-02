@@ -24,3 +24,13 @@ export const contactQuery = `
     address
   }
 `;
+
+export const footerQuery = `
+*[_type == "footer"][0]{
+  title,
+  columns[]{
+    heading,
+    content
+  }
+}
+`

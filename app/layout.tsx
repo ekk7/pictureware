@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import { client } from '@/sanity.client'
+import { footerQuery } from '@/sanity.queries'
+import Footer from './components/Footer';
 
 const kantumruyPro = localFont({
   src: [
@@ -56,17 +59,28 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const footer = await client.fetch(footerQuery)
+
   return (
     <html lang="en">
       <body
         className={`${kantumruyPro.variable} ${mynerve.variable} antialiased`}
       >
+        <header className="header">
+          <h1>PICTUREWARE</h1>
+        </header>
         {children}
+        {/* Corner decorations */}
+        <img src="/corner-top-left.png" alt="" className="corner-decoration corner-top-left" />
+        <img src="/corner-top-right.png" alt="" className="corner-decoration corner-top-right" />
+        <img src="/corner-bottom-left.png" alt="" className="corner-decoration corner-bottom-left" />
+        <img src="/corner-bottom-right.png" alt="" className="corner-decoration corner-bottom-right" />
+        <Footer footer={footer} />
       </body>
     </html>
   );
