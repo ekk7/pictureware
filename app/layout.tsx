@@ -1,6 +1,42 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const kantumruyPro = localFont({
+  src: [
+    {
+      path: "../public/fonts/KantumruyPro-VariableFont_wght.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-kantumruyPro",
+});
+
+
+const playpen = localFont({
+  src: [
+    {
+      path: "../public/fonts/PlaypenSansThai-VariableFont_wght.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-playpen",
+});
+
+const mynerve = localFont({
+  src: [
+    {
+      path: "../public/fonts/Mynerve-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-mynerve",
+});
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${kantumruyPro.variable} ${mynerve.variable} antialiased`}
       >
         {children}
       </body>
