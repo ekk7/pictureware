@@ -1,6 +1,6 @@
 import { client } from '@/sanity.client'
 import { galleryQuery } from '@/sanity.queries'
-import GalleryWrapper from '../components/GalleryWrapper';
+import GalleryWrapper from '../components/Gallery/GalleryWrapper';
 
 
 

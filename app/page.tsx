@@ -1,5 +1,5 @@
 import { client } from '@/sanity.client.js'
-import GalleryWrapper from './components/GalleryWrapper'
+import GalleryWrapper from './components/Gallery/GalleryWrapper'
 
 async function getPosts() {
   const query = `*[_type == "post"]{title, slug, body}`

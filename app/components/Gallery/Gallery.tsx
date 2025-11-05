@@ -101,22 +101,29 @@ export default function Gallery({ gallery }) {
                 </>
               )}
 
-              <motion.div
-                key={selectedIndex}
-                className="gallery-overlay-image-wrapper"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  {...sanityImageProps(selectedImage, { width: 2000 })}
-                  alt="Expanded gallery image"
-                  className="gallery-overlay-image"
-                  sizes="100vw"
-                  priority
-                />
-              </motion.div>
+            <motion.div
+              key={selectedIndex}
+              className="gallery-overlay-image-wrapper"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                {...sanityImageProps(selectedImage)}
+                alt="Expanded gallery image"
+                className="gallery-overlay-image"
+                sizes="100vw"
+                priority
+              />
+              {gallery.images[selectedIndex]?.overlayText && (
+                <p className="gallery-overlay-text fadeIn">
+                  {gallery.images[selectedIndex].overlayText}
+                </p>
+              )}
+            
+            </motion.div>
+            
             </div>
           </motion.div>
         )}

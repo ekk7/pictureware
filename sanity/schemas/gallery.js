@@ -38,6 +38,11 @@ export default {
               title: 'Caption',
               type: 'string',
             },
+            {
+              name: 'overlayText',
+              title: 'Overlay Text',
+              type: 'string',
+            },
           ],
           preview: {
             select: { title: 'caption', media: 'image' },

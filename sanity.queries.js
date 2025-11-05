@@ -25,12 +25,23 @@ export const contactQuery = `
   }
 `;
 
+export const headerQuery = `
+*[_type == "header"][0]{
+  logo,
+  navLinks[]->{
+    title,
+    "slug": slug.current
+  }
+}
+`;
+
 export const footerQuery = `
 *[_type == "footer"][0]{
   title,
   columns[]{
     heading,
     content
-  }
+  },
+  image,
 }
 `

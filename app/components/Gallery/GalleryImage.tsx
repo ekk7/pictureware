@@ -12,7 +12,7 @@ export default function GalleryImage({ image, alt }) {
     <Image
       {...img}
       alt={alt || 'Gallery image'}
-      className="rounded-xl object-cover"
+      className="object-cover"
     />
   )
 }
