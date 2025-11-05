@@ -5,12 +5,13 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import GalleryImage from './GalleryImage'
 import { sanityImageProps } from '@/sanity.image'
-import './Gallery.css' // ✅ import CSS file
+import './Gallery.css'
 
 export default function Gallery({ gallery }) {
   const [selectedIndex, setSelectedIndex] = useState(null)
   const total = gallery?.images?.length || 0
-  const selectedImage = selectedIndex !== null ? gallery.images[selectedIndex].image : null
+  const selectedImage =
+    selectedIndex !== null ? gallery.images[selectedIndex].image : null
 
   // --- keyboard navigation ---
   const handleKeyDown = useCallback(
@@ -33,9 +34,6 @@ export default function Gallery({ gallery }) {
 
   return (
     <main className="gallery-container">
-      {/* <h2 className="gallery-title">{gallery.title}</h2> */}
-      {/* {gallery.description && <p className="gallery-description">{gallery.description}</p>} */}
-
       {/* --- grid --- */}
       <div className="gallery-grid">
         {gallery.images.map((img, i) => (
@@ -48,7 +46,9 @@ export default function Gallery({ gallery }) {
               image={img.image}
               alt={img.alt || img.caption || 'Gallery image'}
             />
-            {img.caption && <figcaption className="gallery-caption">{img.caption}</figcaption>}
+            {img.caption && (
+              <figcaption className="gallery-caption">{img.caption}</figcaption>
+            )}
           </figure>
         ))}
       </div>
@@ -68,6 +68,7 @@ export default function Gallery({ gallery }) {
               className="gallery-overlay-content"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close button */}
               <button
                 onClick={() => setSelectedIndex(null)}
                 className="gallery-close"
@@ -76,6 +77,7 @@ export default function Gallery({ gallery }) {
                 ×
               </button>
 
+              {/* Arrows */}
               {total > 1 && (
                 <>
                   <button
@@ -101,29 +103,31 @@ export default function Gallery({ gallery }) {
                 </>
               )}
 
-            <motion.div
-              key={selectedIndex}
-              className="gallery-overlay-image-wrapper"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                {...sanityImageProps(selectedImage)}
-                alt="Expanded gallery image"
-                className="gallery-overlay-image"
-                sizes="100vw"
-                priority
-              />
-              {gallery.images[selectedIndex]?.overlayText && (
-                <p className="gallery-overlay-text fadeIn">
-                  {gallery.images[selectedIndex].overlayText}
-                </p>
-              )}
-            
-            </motion.div>
-            
+              {/* Image + caption container */}
+              <motion.div
+                key={selectedIndex}
+                className="gallery-overlay-image-wrapper"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  {...sanityImageProps(selectedImage)}
+                  alt="Expanded gallery image"
+                  className="gallery-overlay-image"
+                  sizes="100vw"
+                  priority
+                />
+
+                {gallery.images[selectedIndex]?.overlayText && (
+                  <p
+                    className="gallery-overlay-text"
+                  >
+                    {gallery.images[selectedIndex].overlayText}
+                  </p>
+                )}
+              </motion.div>
             </div>
           </motion.div>
         )}

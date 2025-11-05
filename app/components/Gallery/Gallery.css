@@ -47,28 +47,6 @@
   text-align: center;
 }
 
-.gallery-overlay-text {
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-  color: white;
-  font-size: 1.2rem;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-}
-
-.gallery-overlay-image-wrapper:hover .gallery-overlay-text {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
 /* Overlay container (same as before) */
 .gallery-overlay {
   position: fixed;
@@ -78,30 +56,6 @@
   align-items: center;
   justify-content: center;
   z-index: 50;
-  padding: 1rem;
-}
-
-/* Overlay inner wrapper */
-.gallery-overlay-content {
-  position: relative;
-  width: 100%;
-  max-width: 95vw;
-  max-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Image wrapper ensures correct aspect ratio */
-.gallery-overlay-image-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; /* ensure caption stays below */
-  gap: 0.75rem;
-  max-width: 80vw;
-  max-height: 90vh;
-  margin: 0 auto;
   padding: 1rem;
 }
 
@@ -116,18 +70,6 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Caption text below image */
-.gallery-overlay-text {
-  color: black;
-  background: white;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  text-align: center;
-  max-width: 70%;
-  opacity: 1; /* always visible when expanded */
-  margin-top: 100rem;
-  justify-self: center;
-}
 
 
 @keyframes fadeIn {
@@ -169,5 +111,49 @@
 }
 
 
+.gallery-overlay-content {
+  position: relative;
+  width: 100%;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: flex-start; /* BEGIN: Change to flex-start to position items at the top */
+  justify-content: center;
+  overflow-y: auto; /* BEGIN: Allow vertical scrolling */
+}
 
+/* Image wrapper ensures correct aspect ratio */
+.gallery-overlay-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* BEGIN: Change to flex-start to position items at the top */
+  gap: 0.75rem;
+  max-width: 80vw;
+  max-height: 100vh;
+  margin: 0 auto 10rem;
+  padding: 2rem;
+
+  @media (max-width: 640px) {
+    padding: 10rem 1rem 1rem 1rem;
+  }
+}
+
+/* Caption text below image */
+.gallery-overlay-text {
+  color: black;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;  
+  text-align: center;
+  max-width: 70%;
+  opacity: 1; /* always visible when expanded */
+  margin-top: 1rem; /* BEGIN: Adjust margin to separate from image */
+  justify-self: center;
+
+  @media (max-width: 800px) {
+    max-width: 95%;
+  }
+} /* END: */
 
